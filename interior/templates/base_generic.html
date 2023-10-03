@@ -11,6 +11,8 @@
         <ul>
             {% if user.is_authenticated%}
             <li><a href="{% url 'logout' %}">Выйти</a></li>
+            <li><a href="{%url 'createz'%}">Создать заявку</a></li>
+            <li><a href="{%url 'listz'%}">Список заявок</a></li>
             {%else%}
             <li><a href="{% url 'login' %}">Войти</a></li>
             <li><a href="{%url 'reg'%}">Зарегистрироваться</a></li>

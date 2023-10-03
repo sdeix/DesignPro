@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block title %}Зарегистрироваться{% endblock %}
+{% block content %}
+  <form method="post" action="{% url 'createz' %}" enctype="multipart/form-data">
+    <ul>
+    {% csrf_token %}
+    {{user.id}}
+    {% for a in form%}
+    {%if a.name == "user_z" %}
+
+    <li><select style="visibility: hidden" name="user_z" id="id_user_z" value="{{user.id}}">
+      <option value="{{user.id}}"></option>
+    </select></li>
+    {%else%}
+    
+    <li>{{a}}{{a.label_tag}}</li>
+    {%endif%}
+    {%endfor%}
+    <input type="submit" value="Создать">
+    </ul>
+  </form>
+{% endblock %}
