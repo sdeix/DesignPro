@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>{{user.username}}</h1>
+
+    <ul>
+   
+      {% for z in zayavka_list %}
+      <li>
+
+        Время создания - {{z.time_z}}
+        Название - {{z.name_z}}
+        Описание - {{z.decs_z}}
+        Категория - {{z.category}}
+        Статус заявки - {{z.status}}
+      <a href="{{  z.get_absolute_url}}">Удалить заявку?</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+
+
+{% endblock %}
