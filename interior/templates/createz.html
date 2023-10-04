@@ -1,10 +1,10 @@
 {% extends "base_generic.html" %}
-{% block title %}Зарегистрироваться{% endblock %}
+{%load static%}
+{% block title %}<title>Создание заявки</title>{% endblock %}
 {% block content %}
   <form method="post" action="{% url 'createz' %}" enctype="multipart/form-data">
     <ul>
     {% csrf_token %}
-    {{user.id}}
     {% for a in form%}
     {%if a.name == "user_z" %}
 

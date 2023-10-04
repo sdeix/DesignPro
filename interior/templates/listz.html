@@ -1,17 +1,19 @@
 {% extends "base_generic.html" %}
-
+{% block title %}<title>Мои заявки</title>{% endblock %}
 {% block content %}
     <h1>{{user.username}}</h1>
 
-    <ul>
+    <ul class="cards">
    
       {% for z in zayavka_list %}
-      <li>
-        Время создания - {{z.time_z}}
-        Название - {{z.name_z}}
-        Описание - {{z.decs_z}}
-        Категория - {{z.category}}
-        Статус заявки - {{z.status}}
+      <li class="card">
+        <img src="{{ z.image.url }}" alt=""><hr>
+        <p><b>Время создания</b> - {{z.time_z}}</p> <hr>
+        <p><b>Название</b> - {{z.name_z}}</p><hr>
+        <p><b>Описание</b> - {{z.desc_z}}</p><hr>
+        <p><b>Категория</b> - {{z.category}}</p><hr>
+        <p><b>Статус заявки</b> - {{z.status}}</p><hr>
+      <a href="{{  z.get_absolute_url}}" class="delete_button">Удалить заявку?</a>
       </li>
       {% endfor %}
 
