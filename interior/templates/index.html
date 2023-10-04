@@ -3,9 +3,8 @@
 
 {% block content %}
 
-
+    <p class="count">Заявок принято в работу: {{accepted_count}}</p>
     <ul class="cards">
-   
       {% for z in zayavka_list %}
       <li class="card">
         <img src="{{ z.image.url }}" alt=""><hr>

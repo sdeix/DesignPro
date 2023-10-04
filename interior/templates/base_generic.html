@@ -18,6 +18,7 @@
                     <li><a href="{%url 'category_list'%}">Управление категориями заявок</a></li>
                     {%endif%}
                     {% if user.is_authenticated%}
+                    <li><a href="{%url 'index'%}">Главная страница</a></li>
 
                     <li><a href="{%url 'createz'%}">Создать заявку</a></li>
                     <li><a href="{%url 'listz'%}">Список заявок</a></li>

@@ -56,6 +56,9 @@ class Zayavka(models.Model):
         Returns the url to access a particular author instance.
         """
         return reverse('deletez', args=[str(self.id)])
+    def get_context(self):
+        acc = Zayavka.objects.filter(status='accepted').count()
+        return Zayavka.objects.filter(status='accepted').count()
     def set_accepted(self):
         """
         Returns the url to access a particular author instance.
