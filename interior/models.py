@@ -47,7 +47,7 @@ class Zayavka(models.Model):
     time_z = models.DateTimeField(auto_now_add=True, editable=True,verbose_name="Время создания",blank=True,null=True, )
     image = models.FileField(validators=[file_size])
     user_z = models.ForeignKey(User,verbose_name="пользователь", on_delete=models.SET_NULL,null=True,blank=True)
-    image_done = models.FileField("Выполненый дизайн",null=True,blank=True)
+    image_done = models.FileField(null=True,blank=True)
     comment = models.TextField('Комментарий', max_length=300,null=True,blank=True)
     def __str__(self):
         return self.name_z

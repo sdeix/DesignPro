@@ -98,6 +98,8 @@ class Done(UpdateView):
     success_url = reverse_lazy('admin_list')
     template_name = 'done.html'
     fields = ['image_done','status']
+    
+    
 
 class Accept(UpdateView):
     model = Zayavka

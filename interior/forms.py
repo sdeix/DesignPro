@@ -29,3 +29,4 @@ class CategoryForm(forms.ModelForm):
         model = Category
 
         fields = ['name_category']
+
