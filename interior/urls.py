@@ -6,7 +6,7 @@ from .views import BBLoginView, BBLogoutView
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.Index.as_view(), name='index'),
     path('login/', BBLoginView.as_view(), name='login'),
     path('logout/', BBLogoutView.as_view(), name='logout'),
     path('reg/', views.SignUp.as_view(), name='reg'),

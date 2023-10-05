@@ -59,7 +59,18 @@ class ListZ(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Zayavka.objects.filter(user_z=self.request.user).order_by('time_z')
 
-
+class Index(ListView):
+    template_name = 'index.html'
+    model = Zayavka
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(Index, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['accepted_count'] = Zayavka.objects.filter(status='accepted').count()
+        return context
+    def get_queryset(self):
+        
+        return Zayavka.objects.filter(status="done").order_by('-time_z')[:4]
 
 
 class CategoryList(PermissionRequiredMixin, ListView):
@@ -87,6 +98,8 @@ class Done(UpdateView):
     success_url = reverse_lazy('admin_list')
     template_name = 'done.html'
     fields = ['image_done','status']
+    
+    
 
 class Accept(UpdateView):
     model = Zayavka

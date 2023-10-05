@@ -1,26 +1,37 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
     {%block title%}<title>Document</title>{%endblock%}
 </head>
 <body>
     <div>
         <ul>
-            {% if user.is_staff%}
-                <li><a href="{%url 'admin_list'%}">Управление заявками</a></li>
-                <li><a href="{%url 'category_list'%}">Управление категориями заявок</a></li>
-            {%endif%}
-            {% if user.is_authenticated%}
-            <li><a href="{% url 'logout' %}">Выйти</a></li>
-            <li><a href="{%url 'createz'%}">Создать заявку</a></li>
-            <li><a href="{%url 'listz'%}">Список заявок</a></li>
-            {%else%}
-            <li><a href="{% url 'login' %}">Войти</a></li>
-            <li><a href="{%url 'reg'%}">Зарегистрироваться</a></li>
-            {%endif%}
+            <header>
+                <nav class="asd">
+                    {% if user.is_staff%}
+                    <li><a href="{%url 'admin_list'%}">Управление заявками</a></li>
+                    <li><a href="{%url 'category_list'%}">Управление категориями заявок</a></li>
+                    {%endif%}
+                    {% if user.is_authenticated%}
+                    <li><a href="{%url 'index'%}">Главная страница</a></li>
+
+                    <li><a href="{%url 'createz'%}">Создать заявку</a></li>
+                    <li><a href="{%url 'listz'%}">Список заявок</a></li>
+                    <li><a href="{% url 'logout' %}">Выйти</a></li>
+                    {%else%}
+                    <li><a href="{% url 'login' %}">Войти</a></li>
+                    <li><a href="{%url 'reg'%}">Зарегистрироваться</a></li>
+                    {%endif%}
+                </nav>
+
+            </header>
+
+
             {%block content%}{%endblock%}
         </ul>
     </div>

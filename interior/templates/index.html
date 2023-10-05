@@ -1,2 +1,28 @@
 {%extends 'base_generic.html'%}
 {%block title%}<title>Главная страница</title>{%endblock%}
+
+{% block content %}
+
+    <p class="count">Заявок принято в работу: {{accepted_count}}</p>
+    <h1>Последнее выполненое:</h1>
+    <ul class="cards">
+      {% for z in zayavka_list %}
+      <li class="card">
+  
+ 
+
+        <img src="{{ z.image_done.url }}" alt=""><hr>
+
+      
+       
+        <p><b>Время создания</b> - {{z.time_z}}</p> <hr>
+        <p><b>Название</b> - {{z.name_z}}</p><hr>
+        <p><b>Категория</b> - {{z.category}}</p><hr>
+
+      </li>
+      {% endfor %}
+
+    </ul>
+
+
+{% endblock %}

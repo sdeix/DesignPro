@@ -1,21 +1,22 @@
 {% extends "base_generic.html" %}
-
+{% block title %}<title>Управление заявками</title>{% endblock %}
 {% block content %}
-    <h1>{{user.username}}</h1>
-    <ul>
+    <h1>Сменить тип заявки или удалить</h1>
+    <ul  class="cards">
 
       {% for z in zayavka_list %}
-      <li>
+      <li class="card">
+        <img src="{{ z.image.url }}" alt=""><hr>
 
-        Время создания - {{z.time_z}}
-        Название - {{z.name_z}}
-        Описание - {{z.decs_z}}
-        Категория - {{z.category}}
-        Статус заявки - {{z.status}}
-          {% if z.status == 'new' %}
-              <a href="{{  z.set_accepted}}">Принято в работу</a>
-              <a href="{{  z.set_done}}">Выполнено</a>
-          {%endif%}
+        <p>Время создания - {{z.time_z}}</p>
+        <p>Название - {{z.name_z}}</p>
+        <p>Описание - {{z.desc_z}}</p>
+        <p>Категория - {{z.category}}</p>
+        <p>Статус заявки - {{z.status}}</p>
+        {% if z.status == 'new' %}
+        <p></p><a href="{{  z.set_accepted}}">Принято в работу</a></p>
+        <p><a href="{{  z.set_done}}">Выполнено</a></p>
+        {%endif%}
 
       <a href="{{  z.get_absolute_url}}">Удалить заявку?</a>
       </li>

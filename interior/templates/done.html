@@ -1,6 +1,6 @@
 {% extends "base_generic.html" %}
 {% block content %}
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
         {% for a in form%}
@@ -11,9 +11,8 @@
     </select></li>
 
     {%else%}
+    {{a}}
 
-     <input type="file" name="image_done" id="id_image_done" required>
-     <label for="id_image_done">Выполненый дизайн:</label>
 
     {% endif %}
 
